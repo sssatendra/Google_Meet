@@ -5,7 +5,7 @@ import KeyboardIcon from '@mui/icons-material/Keyboard';
 
 function Layout() {
     return (
-        <div className="z-10 flex flex-col lg:flex-row justify-center items-start ">
+        <div className="z-10 flex flex-col lg:flex-row justify-center items-center ">
             <div className="lg:my-28 p-8 lg:w-2/4 space-y-4">
                 <h2 className="font-semibold text-4xl">Premiun Video meetings.</h2>
                 <h2 className="font-semibold text-4xl">Now Free for everyone</h2>
@@ -21,7 +21,7 @@ function Layout() {
                     </a>
                 </div>
             </div>
-            <div className="p-8 lg:w-2/5 my-12">
+            <div className="p-8 my-12 max-w-md flex justify-center items-center">
                 <Carousel
                     autoPlay={true}
                     emulateTouch={true}
