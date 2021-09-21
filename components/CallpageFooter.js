@@ -9,11 +9,13 @@ import GroupIcon from '@mui/icons-material/Group';
 import MessageIcon from '@mui/icons-material/Message';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
-import { IconButton, Icon } from '@mui/material';
+import { IconButton } from '@mui/material';
 import PresentToAllIcon from '@mui/icons-material/PresentToAll';
+import { useRouter } from 'next/router'
 
 function CallpageFooter() {
     const [time, setTime] = useState(new Date().toLocaleTimeString())
+    const router = useRouter()
 
     useEffect(() => {
         setInterval(() => {
@@ -22,7 +24,7 @@ function CallpageFooter() {
     }, [])
 
     return (
-        <div className="flex absolute bottom-0 justify-between items-center text-white bg-gray-800 h-20 w-screen">
+        <div className="flex z-40 absolute bottom-0 justify-between items-center text-white bg-gray-800 h-20 w-screen">
             <div className="ml-5">
                 <h2>{time} | sdkfusdobvuosbdov </h2>
             </div>
@@ -42,7 +44,7 @@ function CallpageFooter() {
                 <IconButton className="p-3 rounded-full ">
                     <MoreVertIcon className="text-white " />
                 </IconButton>
-                <IconButton className="p-3 rounded-full bg-red-600">
+                <IconButton onClick={() => router.back()} className="p-3 rounded-full bg-red-600">
                     <CallEndIcon className="text-white " />
                 </IconButton>
             </div>

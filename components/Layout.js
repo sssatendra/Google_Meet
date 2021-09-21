@@ -8,11 +8,13 @@ import Typography from '@mui/material/Typography';
 import InsertLinkIcon from '@mui/icons-material/InsertLink';
 import AddIcon from '@mui/icons-material/Add';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { useRouter } from 'next/router'
 
 function Layout() {
 
     const [input, setInput] = useState()
     const [anchorEl, setAnchorEl] = useState(null);
+    const router = useRouter()
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -24,6 +26,7 @@ function Layout() {
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
+
 
     return (
         <div className="z-10 flex flex-col lg:flex-row justify-evenly items-center ">
@@ -63,11 +66,14 @@ function Layout() {
                             </button>
                         </div>
                     </Popover>
-                    <a href="#" className="border-gray-400 border rounded-sm flex items-center pr-4"  >
+                    <div className="border-gray-400 border rounded-sm flex items-center pr-4"  >
                         <KeyboardIcon className="mx-3 text-gray-600" />
                         <input value={input} onChange={e => setInput(e.target.value)} className="py-3 outline-none max-w-lg" type="text" autoFocus placeholder="Enter a Code or Link" />
-                    </a>
-                    <button style={input ? { dispay: "flex" } : { display: "none" }} className="items-center font-semibold hover:text-blue-600 px-8">Join</button>
+                    </div>
+                    <button onClick={() => router.push({
+                        pathname: '/meet/[pid]',
+                        query: { pid: input },
+                    })} style={input ? { dispay: "flex" } : { display: "none" }} className="items-center font-semibold hover:text-blue-600 px-8">Join</button>
                 </div>
             </div>
             <div className="p-8 my-12 max-w-md flex justify-center items-center">
