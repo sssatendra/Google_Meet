@@ -1,4 +1,4 @@
-import Image from "next/image"
+// 
 import moment from "moment"
 import { useEffect, useState } from "react"
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
@@ -7,16 +7,33 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import AppsIcon from '@mui/icons-material/Apps';
 import Avatar from '@mui/material/Avatar';
 import { IconButton } from "@mui/material";
+import { signIn, signOut, useSession } from "next-auth/client"
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
 
 function Header() {
 
     const [time, setTime] = useState("")
+    const [session] = useSession();
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     useEffect(() => {
         setInterval(() => {
             setTime(moment().format('llll'))
         }, 1000)
     })
+
 
     return (
         <div className="z-50 w-full h-16 flex justify-between items-center sticky top-0 bg-white">
@@ -44,7 +61,28 @@ function Header() {
                     <IconButton>
                         <AppsIcon className="m-1 text-gray-500" />
                     </IconButton>
-                    <Avatar alt="Remy Sharp" src="" />
+
+                    <Avatar onClick={handleClick} alt="Remy Sharp" src={session ? session.user.image : ""} className="cursor-pointer" />
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+                        {!session ? (
+                            <Typography sx={{ p: 2 }}><button onClick={signIn}> SignIn </button> </Typography>
+
+                        ) : (
+                            <div>
+                                <Typography sx={{ p: 2 }}> Signed in as {session?.user.name} </Typography>
+                                <Typography sx={{ p: 2 }}><button onClick={signOut}>Sign Out </button></Typography>
+                            </div>
+                        )}
+                    </Popover>
                 </div>
             </div>
         </div>
