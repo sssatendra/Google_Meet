@@ -10,6 +10,7 @@ import { IconButton } from "@mui/material";
 import { signIn, signOut, useSession } from "next-auth/client"
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
+import Tooltip from '@mui/material/Tooltip';
 
 function Header() {
 
@@ -36,7 +37,7 @@ function Header() {
 
 
     return (
-        <div className="z-50 w-full h-16 flex justify-between items-center sticky top-0 bg-white">
+        <div className="z-30 w-full h-16 flex justify-between items-center sticky top-0 bg-white">
             <div className="flex justify-start items-center p-5">
                 <img className="h-10 mt-2" src="https://www.gstatic.com/meet/google_meet_horizontal_wordmark_2020q4_1x_icon_124_40_2373e79660dabbf194273d27aa7ee1f5.png"
                 />
@@ -48,21 +49,29 @@ function Header() {
                 </div>
                 <div className="hidden md:flex justify-evenly items-center px-6 space-x-2 mr-2">
                     <IconButton>
-                        <HelpOutlineOutlinedIcon className="m-1 text-gray-500" />
+                        <Tooltip title="Support">
+                            <HelpOutlineOutlinedIcon className="m-1 text-gray-500" />
+                        </Tooltip>
                     </IconButton>
                     <IconButton>
-                        <FeedbackOutlinedIcon className="m-1 text-gray-500" />
+                        <Tooltip title="Feedback">
+                            <FeedbackOutlinedIcon className="m-1 text-gray-500" />
+                        </Tooltip>
                     </IconButton>
                     <IconButton>
-                        <SettingsOutlinedIcon className="m-1 text-gray-500" />
+                        <Tooltip title="Settings">
+                            <SettingsOutlinedIcon className="m-1 text-gray-500" />
+                        </Tooltip>
                     </IconButton>
                 </div>
                 <div className="flex justify-center items-center space-x-2 mx-5">
                     <IconButton>
-                        <AppsIcon className="m-1 text-gray-500" />
+                        <Tooltip title="Google Apps">
+                            <AppsIcon className="m-1 text-gray-500" />
+                        </Tooltip>
                     </IconButton>
 
-                    <Avatar onClick={handleClick} alt="Remy Sharp" src={session ? session.user.image : ""} className="cursor-pointer" />
+                    <Avatar onClick={handleClick} alt="Avatar" src={session ? session.user.image : ""} className="cursor-pointer" />
                     <Popover
                         id={id}
                         open={open}
