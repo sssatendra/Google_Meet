@@ -17,6 +17,13 @@ function CallpageFooter() {
     const [time, setTime] = useState(new Date().toLocaleTimeString())
     const router = useRouter()
 
+    const styles = {
+        root: {
+            backgroundColor: 'red !important',
+            padding: '12px',
+        }
+    };
+
     useEffect(() => {
         setInterval(() => {
             setTime(new Date().toLocaleTimeString())
@@ -44,8 +51,8 @@ function CallpageFooter() {
                 <IconButton className="p-3 rounded-full ">
                     <MoreVertIcon className="text-white " />
                 </IconButton>
-                <IconButton onClick={() => router.push('/')} className="p-3 rounded-full bg-red-600">
-                    <CallEndIcon className="text-white " />
+                <IconButton onClick={() => router.push('/')} >
+                    <CallEndIcon className="text-white" />
                 </IconButton>
             </div>
             <div className="mr-5">
@@ -65,7 +72,7 @@ function CallpageFooter() {
                     <VerifiedUserIcon className="text-white " />
                 </IconButton>
             </div>
-        </div>
+        </div >
     )
 }
 

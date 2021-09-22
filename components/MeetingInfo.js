@@ -20,10 +20,12 @@ function MeetingInfo() {
                     <CloseIcon className="transform duration-500" />
                 </IconButton>
             </div>
-            <Fab variant="extended" color="primary" className="mx-5 mb-6" >
-                <PersonAddIcon sx={{ mr: 1 }} />
-                Add user
-            </Fab>
+            <div className="mx-5 mb-6">
+                <Fab variant="extended" color="primary">
+                    <PersonAddIcon sx={{ mr: 1 }} />
+                    Add user
+                </Fab>
+            </div>
             <p className="px-4 text-gray-600">Or share this meeting link with others you want in the meeting</p>
             <div className="flex justify-center items-center mx-2 my-3 bg-gray-200 rounded-md shadow-md">
                 <p className="flex-grow px-4 py-3">Some random Link</p>
