@@ -10,6 +10,7 @@ import AddIcon from '@mui/icons-material/Add';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { useRouter } from 'next/router'
 
+
 function Layout() {
 
     const [input, setInput] = useState()
@@ -56,7 +57,10 @@ function Layout() {
                                 <InsertLinkIcon className="ml-2" />
                                 <Typography sx={{ p: 2 }}>Create a meeting</Typography>
                             </button>
-                            <button className='hover:bg-gray-300 w-full flex justify-start items-center px-2'>
+                            <button onClick={() => router.push({
+                                pathname: `./meet/${input}`,
+                                query: { pid: input },
+                            })} className='hover:bg-gray-300 w-full flex justify-start items-center px-2'>
                                 <AddIcon className="ml-2" />
                                 <Typography sx={{ p: 2 }}>Start an instant meeting</Typography>
                             </button>
@@ -71,7 +75,7 @@ function Layout() {
                         <input value={input} onChange={e => setInput(e.target.value)} className="py-3 outline-none max-w-lg" type="text" autoFocus placeholder="Enter a Code or Link" />
                     </div>
                     <button onClick={() => router.push({
-                        pathname: '/meet/[pid]',
+                        pathname: `./meet/${input}`,
                         query: { pid: input },
                     })} style={input ? { dispay: "flex" } : { display: "none" }} className="items-center font-semibold hover:text-blue-600 px-8">Join</button>
                 </div>

@@ -26,7 +26,7 @@ function CallpageFooter() {
     return (
         <div className="flex z-40 absolute bottom-0 justify-between items-center text-white bg-gray-800 h-20 w-screen">
             <div className="ml-5">
-                <h2>{time} | sdkfusdobvuosbdov </h2>
+                <h2>{time}</h2>
             </div>
             <div className="space-x-6">
                 <IconButton className="p-3 rounded-full ">
@@ -44,7 +44,7 @@ function CallpageFooter() {
                 <IconButton className="p-3 rounded-full ">
                     <MoreVertIcon className="text-white " />
                 </IconButton>
-                <IconButton onClick={() => router.back()} className="p-3 rounded-full bg-red-600">
+                <IconButton onClick={() => router.push('/')} className="p-3 rounded-full bg-red-600">
                     <CallEndIcon className="text-white " />
                 </IconButton>
             </div>

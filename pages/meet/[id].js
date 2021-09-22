@@ -10,7 +10,7 @@ function Meet() {
             </video>
             {/* <CallpageHeader /> */}
             <CallpageFooter />
-            {/* <MeetingInfo /> */}
+            <MeetingInfo />
             <Messenger />
         </div>
     )

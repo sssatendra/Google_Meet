@@ -16,8 +16,12 @@
     "next": "latest",
     "next-auth": "^3.29.0",
     "react": "^17.0.2",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.2",
-    "react-responsive-carousel": "^3.2.21"
+    "react-responsive-carousel": "^3.2.21",
+    "react-uuid": "^1.0.2",
+    "simple-peer": "^9.11.0",
+    "socket.io-client": "^4.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
