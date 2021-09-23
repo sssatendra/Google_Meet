@@ -14,6 +14,7 @@ export default function Home() {
       <Head>
         <title>Google Meet</title>
         <link rel="icon" href="https://ssl.gstatic.com//meet/icons/logo_meet_2020q4_48dp_2556d3f5eb3d58f0410e20b82a3ba462.png" />
+		<meta name="google-site-verification" content="gsv067XkStNVjwp9_S3GPdauo7lEV8tMux2iHdw1PuA" />
       </Head>
       <Header />
       <Layout room={roomId} />
