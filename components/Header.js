@@ -50,7 +50,7 @@ function Header() {
                 <div className="hidden md:flex justify-evenly items-center px-6 space-x-2 mr-2">
                     <IconButton>
                         <Tooltip title="Support">
-                            <HelpOutlineOutlinedIcon className="m-1 text-gray-500" />
+                            <HelpOutlineOutlinedIcon className="m-1 text-gray-500 " />
                         </Tooltip>
                     </IconButton>
                     <IconButton>

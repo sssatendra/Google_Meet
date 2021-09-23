@@ -6,12 +6,13 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 import { useSession } from "next-auth/client"
 import { useState } from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 
-function MeetingInfo() {
+function MeetingInfo({ id }) {
     const [session] = useSession();
     const [show, setShow] = useState(true)
-    // console.log(show)
+
     return (
         <div className={show ? "absolute transform duration-500 bg-white top-10 left-10 z-10 rounded-lg w-80" : "absolute top-10 transform duration-500  bg-white -left-64 z-10 rounded-lg w-80"}>
             <div className="flex justify-between items-center p-2 px-5 mt-3" >
@@ -28,7 +29,7 @@ function MeetingInfo() {
             </div>
             <p className="px-4 text-gray-600">Or share this meeting link with others you want in the meeting</p>
             <div className="flex justify-center items-center mx-2 my-3 bg-gray-200 rounded-md shadow-md">
-                <p className="flex-grow px-4 py-3">Some random Link</p>
+                <input value={id} className="flex-grow px-4 py-3 bg-gray-200 outline-none" />
                 <IconButton className="p-3">
                     <ContentCopyIcon />
                 </IconButton>
